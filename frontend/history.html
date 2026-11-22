@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Passbook | SecureBank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="history" data-protected="true">
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="dashboard.html">
+            <span class="brand-mark"><i class="bi bi-shield-lock-fill"></i></span>
+            <div>
+                <span class="brand-name">SecureBank</span>
+                <span class="brand-tag">Digital Banking</span>
+            </div>
+        </a>
+
+        <nav class="side-nav">
+            <span class="nav-label">Main menu</span>
+            <a class="side-link" href="dashboard.html">
+                <i class="bi bi-grid-1x2-fill"></i>Dashboard
+            </a>
+            <a class="side-link" href="transfer.html">
+                <i class="bi bi-arrow-left-right"></i>Send Money
+            </a>
+            <a class="side-link active" href="history.html" aria-current="page">
+                <i class="bi bi-journal-text"></i>Passbook History
+            </a>
+            <a class="side-link" href="profile.html">
+                <i class="bi bi-person-circle"></i>Profile
+            </a>
+        </nav>
+
+        <div class="sidebar-card">
+            <div class="sidebar-card-icon"><i class="bi bi-shield-check"></i></div>
+            <p class="sidebar-card-title">Protected session</p>
+            <p class="sidebar-card-text">JWT secured and BCrypt encrypted.</p>
+        </div>
+
+        <button class="side-logout" type="button" data-action="logout">
+            <i class="bi bi-box-arrow-left"></i>Logout
+        </button>
+    </aside>
+
+    <div class="sidebar-backdrop" data-action="close-sidebar"></div>
+
+    <div class="main-area">
+        <header class="topbar">
+            <div class="d-flex align-items-center gap-3">
+                <button class="icon-btn d-lg-none" type="button" data-action="toggle-sidebar"
+                        aria-label="Open navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="page-heading">
+                    <span class="eyebrow">SecureBank</span>
+                    <h1>Passbook</h1>
+                </div>
+            </div>
+
+            <div class="topbar-user">
+                <div class="user-avatar" data-user-initials>SB</div>
+                <div class="user-meta">
+                    <span class="user-name" data-user="fullName">Account Holder</span>
+                    <span class="user-email" data-user="email">—</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div id="pageAlert" class="alert d-none" role="alert"></div>
+
+            <section class="card">
+                <div class="card-header">
+                    <div>
+                        <h2>Passbook statement</h2>
+                        <p>Every credit and debit on your account.</p>
+                    </div>
+                    <span class="count-chip" id="historyCount">0 transactions</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table bank-table align-middle">
+                        <thead>
+                        <tr>
+                            <th>Date / Time</th>
+                            <th>Type</th>
+                            <th>Counterparty account</th>
+                            <th class="text-end">Amount</th>
+                            <th class="text-end">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody id="historyBody">
+                        <tr>
+                            <td colspan="5" class="text-center py-4 text-muted">
+                                <span class="spinner-border spinner-border-sm me-2" role="status"
+                                      aria-hidden="true"></span>
+                                Loading passbook...
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="historyEmpty" class="empty-state d-none">
+                    <div class="empty-icon"><i class="bi bi-journal-x"></i></div>
+                    <h3>Your passbook is empty</h3>
+                    <p class="mb-0">Credits and debits will appear here after your first transfer.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
