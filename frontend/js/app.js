@@ -1,6 +1,6 @@
 "use strict";
 
-const API_BASE = "http://localhost:8080/api";
+const API_BASE = "https://secure-bank-app-s73t.onrender.com/api";
 const TOKEN_KEY = "securebank.token";
 const USER_KEY = "securebank.user";
 
